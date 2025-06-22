@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madushan Jaya Sri - ML Engineer & AI Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #667eea;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-white {
+            background: white;
+        }
+
+        .section-gray {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #667eea;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #667eea;
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-left: 2rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        .experience-date {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .experience-title {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin: 0.5rem 0;
+        }
+
+        .experience-company {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .experience-description {
+            color: #666;
+        }
+
+        .experience-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-type {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: #f0f0f0;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: #666;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Education Section */
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .education-card h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-details {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .gpa {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #667eea;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .experience-timeline {
+                padding-left: 1rem;
+            }
+
+            .experience-item {
+                margin-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Madushan Jaya Sri</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Madushan Jaya Sri</h1>
+                <p class="subtitle">ML Engineer (LLM Focus) | Data Scientist | AI Specialist</p>
+                <p>Experienced AI/ML professional with proven expertise in bringing scalable solutions to life from scoping to deployment. Committed to delivering top-tier Cloud ML solutions using DevOps practices and innovative AI technologies.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="mailto:madushanjayasri100@gmail.com" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-white">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div style="width: 250px; height: 250px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); margin: 0 auto; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; font-weight: bold;">MJS</div>
+                </div>
+                <div class="about-text">
+                    <h3>Senior AI/ML Expert</h3>
+                    <p>Mission-driven professional with autonomy, accountability, and technical brilliance in crafting compelling AI solutions. I specialize in Large Language Models, advanced NLP techniques, and end-to-end ML deployment strategies.</p>
+                    <p>Currently working as an ML Engineer - LLM Specialist at Enfection (Pvt) Ltd, where I develop and deploy cutting-edge LLM-based solutions with focus on scalability and performance optimization.</p>
+                    <div class="contact-info">
+                        <a href="tel:+94773878164" class="contact-item">
+                            📞 +94 77 387 8164
+                        </a>
+                        <a href="mailto:madushanjayasri100@gmail.com" class="contact-item">
+                            ✉️ madushanjayasri100@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/madushan-jaya-sri-59069b226/" class="contact-item" target="_blank">
+                            💼 LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-gray">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-date">July 2024 - Present</div>
+                    <h3 class="experience-title">ML Engineer - LLM Specialist</h3>
+                    <div class="experience-company">Enfection (Pvt) Ltd, Sri Jayawardhanapura Kotte</div>
+                    <ul class="experience-description">
+                        <li>Developed and deployed LLM-based solutions with end-to-end implementation using advanced NLP techniques, transformer architectures, RAG, and LangChain</li>
+                        <li>Optimized LLM performance through fine-tuning, prompt engineering, and statistical modeling</li>
+                        <li>Integrated cutting-edge APIs (GPT, Gemini, Claude) using MLOps deployment practices</li>
+                        <li>Collaborated with cross-functional teams including software engineers, solution architects, and product managers</li>
+                        <li>Guided technology trends, shaped roadmap, and delivered compelling discoveries for stakeholders</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-date">July 2023 - July 2024</div>
+                    <h3 class="experience-title">Executive – Data Analyst</h3>
+                    <div class="experience-company">Enfection (Pvt) Ltd, Sri Jayawardhanapura Kotte</div>
+                    <ul class="experience-description">
+                        <li>Generated internal reports and actionable insights for clients including MAS, Keells, Malaysian Coffee brands, and Disney Singapore</li>
+                        <li>Conducted marketing and content audit analysis using Python programming and LLMs</li>
+                        <li>Developed machine learning models using Python libraries (scikit-learn, TensorFlow, Keras)</li>
+                        <li>Implemented unsupervised ML techniques (clustering) for audience segmentation</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-date">Nov 2022 - July 2023</div>
+                    <h3 class="experience-title">Data Scientist – Intern</h3>
+                    <div class="experience-company">Hatton National Bank PLC, Colombo</div>
+                    <ul class="experience-description">
+                        <li>Developed time series forecasting models using LSTM and GRU architecture for foreign currency predictions</li>
+                        <li>Created survival analysis model for NBO (Next Best Offer) achieving 80% tested accuracy</li>
+                        <li>Performed exploratory data analysis identifying high-value AI/ML opportunities</li>
+                        <li>Demonstrated expertise in framing problems and delivering tailored solutions for stakeholders</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-white">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Momentro - AI Marketing SaaS</h3>
+                        <div class="project-type">Production • AI-Powered Platform</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Comprehensive marketing analytics platform with 5 AI-driven modules including Audience Insights, Influencer Analytics, and Content Analysis. Developed proprietary Brand Authority Score (BAS) and Brand Personality Score (BPS) algorithms.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">AWS S3</span>
+                            <span class="tech-tag">OpenAI API</span>
+                            <span class="tech-tag">MLOps</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">SQL Agent with Visualization</h3>
+                        <div class="project-type">Production • GPT-4 Powered</div>
+                    </div>
+                    <div class="project-content">
+                        <p>GPT-4-powered SQL assistant with interactive visualization capabilities. Built using generative AI frameworks with integrated data science project delivery for diverse stakeholders.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">GPT-4</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Document Analysis Chatbot</h3>
+                        <div class="project-type">Production • RAG Architecture</div>
+                    </div>
+                    <div class="project-content">
+                        <p>LLM-based document analysis system with RAG architecture for scalable cloud deployment. Features PDF processing with performance optimization and enterprise-grade solutions.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">LLMs</span>
+                            <span class="tech-tag">RAG</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">MLOps</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Next Best Offer Model</h3>
+                        <div class="project-type">Banking • 80% Accuracy</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Survival analysis model for loan prediction at Hatton National Bank, achieving 80% accuracy and approved for system integration by senior data engineers.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Oracle</span>
+                            <span class="tech-tag">MLOps</span>
+                            <span class="tech-tag">Statistical Modeling</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Currency Flow Forecasting</h3>
+                        <div class="project-type">Time Series • Deep Learning</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Predictive models using LSTM and GRU architectures for foreign currency inflow and outflow predictions with comprehensive testing and scalability focus.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Keras</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">LSTM/GRU</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Multi-Language Sentiment Analysis</h3>
+                        <div class="project-type">NLP • Full Lifecycle</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Comprehensive sentiment analysis tool with full lifecycle management and CI/CD pipeline integration using DevOps practices and MLOps workflows.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">CI/CD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-gray">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🤖 AI & Machine Learning</h3>
+                    <ul class="skill-list">
+                        <li>Large Language Models (GPT, Claude, Gemini)</li>
+                        <li>TensorFlow, Keras, PyTorch, scikit-learn</li>
+                        <li>LangChain, RAG Architecture</li>
+                        <li>Prompt Engineering & Fine-tuning</li>
+                        <li>Deep Learning (CNN, RNN, LSTM, GRU)</li>
+                        <li>NLP: NLTK, spaCy, Transformers, Hugging Face</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>💻 Programming & Development</h3>
+                    <ul class="skill-list">
+                        <li>Python (Expert Level)</li>
+                        <li>R, Java, SQL</li>
+                        <li>Flask, Django, Streamlit</li>
+                        <li>Git Version Control</li>
+                        <li>API Integration & Development</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>☁️ Cloud & Infrastructure</h3>
+                    <ul class="skill-list">
+                        <li>AWS (EC2, S3)</li>
+                        <li>Docker, Kubernetes</li>
+                        <li>MySQL, PostgreSQL, MongoDB</li>
+                        <li>Oracle Database, NoSQL</li>
+                        <li>Scalable Cloud Infrastructure</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🔧 MLOps & DevOps</h3>
+                    <ul class="skill-list">
+                        <li>MLflow, Weights & Biases</li>
+                        <li>Apache Airflow</li>
+                        <li>CI/CD Pipelines</li>
+                        <li>Model Monitoring & Optimization</li>
+                        <li>GitHub Actions</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>📊 Data Science & Analytics</h3>
+                    <ul class="skill-list">
+                        <li>Statistical Analysis & Modeling</li>
+                        <li>Time Series Forecasting</li>
+                        <li>Classification, Clustering</li>
+                        <li>Survival Analysis</li>
+                        <li>Exploratory Data Analysis</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>📈 Visualization & BI</h3>
+                    <ul class="skill-list">
+                        <li>Tableau, Power BI</li>
+                        <li>Matplotlib, Seaborn, Plotly</li>
+                        <li>Interactive Dashboards</li>
+                        <li>Statistical Reporting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section-white">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+                <h3>B.Sc. (HONS) IN APPLIED STATISTICS</h3>
+                <div class="education-details">
+                    <p><strong>University of Colombo</strong></p>
+                    <p>2019 - 2023</p>
+                    <p>Second Class (Upper Division)</p>
+                    <p>Focus: Data Science, Machine Learning, NLP, Statistical Modeling</p>
+                    <div class="gpa">Overall GPA: 3.68</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="mailto:madushanjayasri100@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/madushan-jaya-sri-59069b226/" target="_blank">LinkedIn</a>
+                <a href="tel:+94773878164">Phone</a>
+            </div>
+            <p>&copy; 2025 Madushan Jaya Sri. All rights reserved.</p>
+            <p>Located in Malabe, Colombo, Sri Lanka</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.experience-item, .project-card, .skill-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
